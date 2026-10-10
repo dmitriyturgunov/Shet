@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔢 Счёт"
+            android:textColor="@color/text"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/surface"
+            android:padding="4dp"
+            android:layout_marginBottom="6dp">
+
+            <Button
+                android:id="@+id/tabAdd"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="➕ Сложение"
+                android:textColor="@color/text"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:background="#3B82F6"/>
+
+            <Button
+                android:id="@+id/tabSub"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="➖ Вычитание"
+                android:textColor="@color/text"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:background="#1E293B"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сложение — выберите уровень:"
+            android:textColor="@color/text_dim"
+            android:textSize="14sp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/addLevels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/add10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="64dp"
+                android:text="До 10\n1 + 1 … 9 + 1"
+                android:textColor="@color/text"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="#22C55E"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/add20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="64dp"
+                android:text="До 20\n5 + 7 … 12 + 8"
+                android:textColor="@color/text"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="#F59E0B"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/add100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="64dp"
+                android:text="До 100\n47 + 28, 63 + 15"
+                android:textColor="@color/text"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="#EF4444"
+                android:layout_marginBottom="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/subLevels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/sub10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="64dp"
+                android:text="До 10\n9 − 3 … 8 − 5"
+                android:textColor="@color/text"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="#22C55E"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/sub20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="64dp"
+                android:text="До 20\n15 − 7 … 18 − 9"
+                android:textColor="@color/text"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="#F59E0B"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/sub100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="64dp"
+                android:text="До 100\n75 − 23, 92 − 48"
+                android:textColor="@color/text"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="#EF4444"
+                android:layout_marginBottom="8dp"/>
+        </LinearLayout>
+
+        <!-- Порог победы -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/surface"
+            android:padding="14dp"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="⚡ Время победы (рекорд)"
+                    android:textColor="@color/text_dim"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/threshValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.5 с"
+                    android:textColor="@color/yellow"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/threshMinus"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:text="−"
+                    android:textColor="@color/text"
+                    android:textSize="20sp"
+                    android:background="@color/surface2"
+                    android:padding="0dp"
+                    android:minWidth="0dp"/>
+
+                <SeekBar
+                    android:id="@+id/threshSlider"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="8dp"
+                    android:max="98"/>
+
+                <Button
+                    android:id="@+id/threshPlus"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:text="+"
+                    android:textColor="@color/text"
+                    android:textSize="20sp"
+                    android:background="@color/surface2"
+                    android:padding="0dp"
+                    android:minWidth="0dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Отвечает быстрее — 🎺 фанфары"
+                android:textColor="@color/text_dim2"
+                android:textSize="11sp"
+                android:layout_marginTop="6dp"/>
+        </LinearLayout>
+
+        <!-- Звуки -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/surface"
+            android:padding="14dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎺 Звук победы"
+                android:textColor="@color/yellow"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp">
+
+                <Button
+                    android:id="@+id/pickWin"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="📁 Выбрать файл"
+                    android:textColor="@color/text"
+                    android:textSize="14sp"
+                    android:background="@color/surface2"/>
+
+                <Button
+                    android:id="@+id/resetWin"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="↺"
+                    android:textColor="@color/text"
+                    android:textSize="18sp"
+                    android:background="@color/surface2"
+                    android:layout_marginStart="8dp"
+                    android:padding="0dp"
+                    android:minWidth="0dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/winName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Стандартные фанфары"
+                android:textColor="@color/text_dim"
+                android:textSize="11sp"
+                android:textStyle="italic"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="😱 Звук ошибки"
+                android:textColor="@color/yellow"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="14dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp">
+
+                <Button
+                    android:id="@+id/pickErr"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="📁 Выбрать файл"
+                    android:textColor="@color/text"
+                    android:textSize="14sp"
+                    android:background="@color/surface2"/>
+
+                <Button
+                    android:id="@+id/resetErr"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="↺"
+                    android:textColor="@color/text"
+                    android:textSize="18sp"
+                    android:background="@color/surface2"
+                    android:layout_marginStart="8dp"
+                    android:padding="0dp"
+                    android:minWidth="0dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/errName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Стандартный (гул)"
+                android:textColor="@color/text_dim"
+                android:textSize="11sp"
+                android:textStyle="italic"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ребёнок вводит ответ кнопками\nили называет вслух — микрофон поймает"
+            android:textColor="@color/text_dim2"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
