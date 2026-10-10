@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#101828</color>
+    <color name="surface">#1E293B</color>
+    <color name="surface2">#334155</color>
+    <color name="text">#FFFFFF</color>
+    <color name="text_dim">#9FB3C8</color>
+    <color name="text_dim2">#64748B</color>
+    <color name="green">#22C55E</color>
+    <color name="green_light">#66E0A3</color>
+    <color name="yellow">#FFD166</color>
+    <color name="red">#EF4444</color>
+    <color name="red_dark">#7F1D1D</color>
+    <color name="blue">#3B82F6</color>
+    <color name="blue_active">#2563EB</color>
+</resources>
